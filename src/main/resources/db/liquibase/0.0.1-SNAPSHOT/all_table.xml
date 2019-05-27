@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="ghost" id="T100-20190526-1">
+        <createTable tableName="goods">
+            <column name="id" type="BIGINT(20)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="goodsName" type="VARCHAR(50)"/>
+            <column name="price" type="BIGINT(30)"/>
+            <column name="createTime" type="VARCHAR(50)"/>
+            <column name="updateTime" type="VARCHAR(50)"/>
+            <column name="createGoodsId" type="VARCHAR(50)"/>
+            <column name="updateGoodsId" type="VARCHAR(50)"/>
+            <column name="deleteFlag" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+        <changeSet id="T100-20190526-2" author="ghost">
+            <loadData tableName="goods" file="db/liquibase/0.0.1-SNAPSHOT/elec_user.csv">
+                <column name="goodsName" type="STRING"/>
+                <column name="price" type="STRING"/>
+                <column name="createTime" type="DATE"/>
+                <column name="updateTime" type="DATE"/>
+                <column name="createGoodsId" type="NUMERIC"/>
+                <column name="updateGoodsId" type="NUMERIC"/>
+                <column name="deleteFlag" type="NUMERIC"/>
+            </loadData>
+        </changeSet>
+</databaseChangeLog>
